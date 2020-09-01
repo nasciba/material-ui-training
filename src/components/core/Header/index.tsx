@@ -19,6 +19,9 @@ const Header = () => {
 						<NavLink className={classes.menuLink} to="/page2">
 							Page 2
 						</NavLink>
+						<NavLink className={classes.menuLink} to="/debounce">
+							Debouce exemple
+						</NavLink>
 					</Grid>
 				</Toolbar>
 			</AppBar>
