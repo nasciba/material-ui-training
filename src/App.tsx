@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { ThemeProvider, createMuiTheme, CssBaseline } from '@material-ui/core'
+import lightPalette from './themes/light/palette'
+import darkPalette from './themes/dark/palette'
+import typography from './themes/typography'
+import Home from './pages/Home'
+import ThemeSwitcher from './components/core/ThemeSwitcher'
+import { useThemeContext } from './components/core/ThemeSwitcher/hooks/ThemeContext'
+import 'typeface-poppins'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const MaterialUITheme: React.FC = () => {
+	const { isDark } = useThemeContext()
+
+	const theme = React.useMemo(
+		() =>
+			createMuiTheme({
+				palette: isDark ? darkPalette : lightPalette,
+				typography,
+			}),
+		[isDark]
+	)
+
+	return (
+		<ThemeProvider theme={theme}>
+			<CssBaseline />
+			<Home />
+		</ThemeProvider>
+	)
 }
 
-export default App;
+const App: React.FC = () => {
+	return (
+		<ThemeSwitcher>
+			<MaterialUITheme />
+		</ThemeSwitcher>
+	)
+}
+
+export default App

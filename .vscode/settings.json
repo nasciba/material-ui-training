@@ -1,0 +1,24 @@
+{
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true
+	},
+	"explorer.compactFolders": false,
+	"editor.rulers": [120],
+	"editor.tabSize": 2,
+	"editor.insertSpaces": false,
+	"editor.renderLineHighlight": "gutter",
+	"eslint.validate": [
+		"javascript",
+		"javascriptreact",
+		{
+			"language": "typescript",
+			"autoFix": true
+		},
+		{
+			"language": "typescriptreact",
+			"autoFix": true
+		}
+	],
+	"typescript.updateImportsOnFileMove.enabled": "always",
+	"typescript.preferences.importModuleSpecifier": "non-relative"
+}
