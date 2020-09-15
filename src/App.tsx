@@ -1,9 +1,9 @@
 import React from 'react'
 import { ThemeProvider, createMuiTheme, CssBaseline } from '@material-ui/core'
+import Routes from 'routes/routes'
 import lightPalette from './themes/light/palette'
 import darkPalette from './themes/dark/palette'
 import typography from './themes/typography'
-import Home from './pages/Home'
 import ThemeSwitcher from './components/core/ThemeSwitcher'
 import { useThemeContext } from './components/core/ThemeSwitcher/hooks/ThemeContext'
 import 'typeface-poppins'
@@ -23,7 +23,7 @@ const MaterialUITheme: React.FC = () => {
 	return (
 		<ThemeProvider theme={theme}>
 			<CssBaseline />
-			<Home />
+			<Routes />
 		</ThemeProvider>
 	)
 }
