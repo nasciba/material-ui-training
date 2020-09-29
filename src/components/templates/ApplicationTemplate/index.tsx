@@ -2,6 +2,7 @@ import React from 'react'
 import Header from 'components/core/Header'
 import { MenuModel } from 'components/core/Header/model/MenuModel'
 import DashboardIcon from '@material-ui/icons/Dashboard'
+import NoteIcon from '@material-ui/icons/Note'
 
 const menu = {
 	items: [
@@ -21,7 +22,7 @@ const menu = {
 			id: 'feed',
 			value: 'Feed',
 			to: '/feed',
-			icon: DashboardIcon,
+			icon: NoteIcon,
 		},
 		{
 			id: 'reports',

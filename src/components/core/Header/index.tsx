@@ -14,30 +14,35 @@ const Header: React.FC<HeaderProps> = ({ menu }: HeaderProps) => {
 	const classes = useStyles()
 
 	const items = menu.items.map((menuItem) => {
-		const { icon: Icon } = menuItem
+		const { icon: Icon, value, to, id } = menuItem
 
 		return (
-			<Grid container key={`menu-item-${menuItem.id}`}>
-				<Grid item>{Icon && <Icon />}</Grid>
-				<Grid item>
-					<NavLink className={classes.menuLink} to={menuItem.to}>
-						{menuItem.value}
-					</NavLink>
-				</Grid>
+			<Grid item key={`menu-item-${id}`} className={classes.itemContainer}>
+				<NavLink className={classes.menuLink} to={to}>
+					<Grid container alignItems="center">
+						{Icon && <Icon />}
+						<Grid item className={classes.menuLinkContainer}>
+							{value}
+						</Grid>
+					</Grid>
+				</NavLink>
 			</Grid>
 		)
 	})
 
 	return (
-		<div className={classes.root}>
-			<AppBar position="static" color="primary">
-				<Toolbar>
-					<Grid container justify="center" alignItems="center" alignContent="center">
-						{items}
-					</Grid>
-				</Toolbar>
-			</AppBar>
-		</div>
+		<>
+			<div className={classes.root}>
+				<AppBar position="static" color="primary">
+					<Toolbar>
+						<Grid container justify="center">
+							{items}
+						</Grid>
+					</Toolbar>
+				</AppBar>
+			</div>
+			<div>Oi</div>
+		</>
 	)
 }
 
